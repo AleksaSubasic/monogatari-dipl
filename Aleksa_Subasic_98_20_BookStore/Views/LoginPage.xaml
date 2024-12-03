@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
+             xmlns:local="clr-namespace:Aleksa_Subasic_98_20_BookStore"
+             x:Class="Aleksa_Subasic_98_20_BookStore.Views.LoginPage"
+             Shell.TabBarIsVisible="False"
+             droid:NavigationBar.Color="White">
+    
+    <!-- Change Status Bar Color -->
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="White" StatusBarStyle="Default"/>
+    </Page.Behaviors>
+    
+    <VerticalStackLayout Padding="15,0" Margin="0,100,0,0">
+        <!-- Headline -->
+        <Label Text="Welcome" FontSize="48" TextColor="#168A7C" FontFamily="Inter-Bold" />
+        <Label Text="back!" FontSize="48" Margin="0, -20, 0, 0" FontFamily="Inter-Bold" />
+        <Label Text="World of books, at the palm of your hand." FontSize="14" TextColor="#168A7C" FontFamily="Inter-Regular" Margin="0, 0, 0, 35"/>
+
+        <!-- Email -->
+        <Label Text="Email" FontFamily="Inter-Medium" Margin="0,0,0,10" />
+        <Border Margin="0,0,0,20" Padding="15,0,0,0" Stroke="white" BackgroundColor="White" StrokeShape="RoundRectangle 15">
+            <Border.Shadow>
+                <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+            </Border.Shadow>
+            <local:BorderlessEntry Placeholder="your.email@gmail.com" PlaceholderColor="#8F8F8F"/>
+        </Border>
+
+        <!-- Password -->
+        <Label Text="Password" FontFamily="Inter-Medium" Margin="0,0,0,10" />
+        <Border Margin="0,0,0,20" Padding="15,0,0,0" Stroke="white" BackgroundColor="White" StrokeShape="RoundRectangle 15">
+            <Border.Shadow>
+                <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+            </Border.Shadow>
+            <local:BorderlessEntry IsPassword="True" Placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" 
+                                   PlaceholderColor="#8F8F8F"/>
+        </Border>
+
+        <!-- Login Btn -->
+        <Button Text="Login" FontFamily="Inter-Medium" BackgroundColor="#168A7C" CornerRadius="15">
+            <Button.Shadow>
+                <Shadow Brush="Black"
+                        Offset="-2,-2"
+                        Radius="15"
+                        Opacity="0.1"/>
+            </Button.Shadow>
+        </Button>
+        
+        <!-- Register Btn, srediti link za registraciju -->
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Don't have an account? " />
+            <Button Text="Register here!" TextColor="#168A7C" BackgroundColor="Transparent" Padding="0" Clicked="RegBtn_Clicked"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

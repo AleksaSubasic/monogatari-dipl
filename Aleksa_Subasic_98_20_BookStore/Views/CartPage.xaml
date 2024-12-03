@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Aleksa_Subasic_98_20_BookStore"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
+             xmlns:books="clr-namespace:Aleksa_Subasic_98_20_BookStore.ViewModels"
+             x:Class="Aleksa_Subasic_98_20_BookStore.Views.CartPage"
+             droid:NavigationBar.Color="White">
+
+    <!-- Change Status Bar Color -->
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent"/>
+    </Page.Behaviors>
+
+    <ContentPage.BindingContext>
+        <books:BooksViewModel/>
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="15,0" Margin="0,40,0,0">
+        <!-- Popular This Month -->
+        <Grid RowDefinitions="*, *">
+            <Label Grid.Row="0" Text="Cart (0)" FontSize="20" FontFamily="Inter-Bold" />
+            <Label Grid.Row="1" Text="Manage your books inside cart below." FontSize="14" FontFamily="Inter-Regular" TextColor="#8F8F8F" />
+        </Grid>
+        
+        <!-- If else products added to the cart -->
+        <Label FontFamily="Inter-Bold" FontSize="20" TextColor="#D9D9D9" Text="No products added to the cart!" HeightRequest="700" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+    </VerticalStackLayout>
+</ContentPage>

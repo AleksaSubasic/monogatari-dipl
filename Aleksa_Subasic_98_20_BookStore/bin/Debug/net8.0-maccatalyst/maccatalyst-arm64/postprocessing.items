@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="Aleksa_Subasic_98_20_BookStore.app/Contents/MacOS/Aleksa_Subasic_98_20_BookStore">
+      <IsAppExtension>false</IsAppExtension>
+      <BCSymbolMapName>Aleksa_Subasic_98_20_BookStore.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>Aleksa_Subasic_98_20_BookStore.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>/Users/aleksasubasic/Documents/Aleksa_Subasic_98_20_BookStore/Aleksa_Subasic_98_20_BookStore/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/mtouch-symbols.list</SymbolFile>
+      <DSymName>Aleksa_Subasic_98_20_BookStore.app.dSYM</DSymName>
+      <SourceProjectPath>/Users/aleksasubasic/Documents/Aleksa_Subasic_98_20_BookStore/Aleksa_Subasic_98_20_BookStore</SourceProjectPath>
+      <IsXPCService></IsXPCService>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>

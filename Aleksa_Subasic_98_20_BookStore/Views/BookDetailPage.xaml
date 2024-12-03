@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Aleksa_Subasic_98_20_BookStore"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
+             xmlns:books="clr-namespace:Aleksa_Subasic_98_20_BookStore.ViewModels"
+             x:Class="Aleksa_Subasic_98_20_BookStore.Views.BookDetailPage"
+             droid:NavigationBar.Color="White"
+             Shell.NavBarIsVisible="false"
+             Shell.TabBarIsVisible="False">
+
+    <!-- Change Status Bar Color -->
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent"/>
+    </Page.Behaviors>
+
+    <ContentPage.BindingContext>
+        <books:BooksViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="* ,Auto">
+        <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never" Padding="15,0" Margin="0,0,0,0">
+            <Grid RowDefinitions="auto,auto,350" RowSpacing="25">
+                <!--Back button, fav button, book image, title, author, rating-->
+                <Border Grid.Row="0" Padding="15" Margin="0,20,0,0" BackgroundColor="#e9f2ff" Stroke="#e9f2ff" StrokeShape="RoundRectangle 30">
+                    <Grid RowDefinitions="auto,auto,auto" RowSpacing="10">
+                        <!--Navigation and fav button-->
+                        <Grid Grid.Row="0" ColumnDefinitions="*,*">
+                            <ImageButton x:Name="BckBtn" Grid.Column="0" HorizontalOptions="Start" Source="back_btn.svg" BackgroundColor="White" CornerRadius="100" HeightRequest="35" WidthRequest="35" Padding="8" Clicked="BckBtn_Clicked">
+                                <ImageButton.Shadow>
+                                    <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+                                </ImageButton.Shadow>
+                            </ImageButton>
+                            <ImageButton Grid.Column="1" HorizontalOptions="End" Source="fav.svg" BackgroundColor="White" CornerRadius="100" HeightRequest="35" WidthRequest="35" Padding="8" Clicked="AddToFavorites_Clicked">
+                                <ImageButton.Shadow>
+                                    <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+                                </ImageButton.Shadow>
+                            </ImageButton>
+                        </Grid>
+                        
+                        <!--Image-->
+                        <Border Grid.Row="1" WidthRequest="195" StrokeShape="RoundRectangle 15" Stroke="Transparent">
+                            <Image  Source="normal_people.png" WidthRequest="200" HeightRequest="300"/>
+                        </Border>
+                        
+                        <!--Title, author, rating-->
+                        <VerticalStackLayout Grid.Row="2" Spacing="3">
+                            <Label Text="Normal People" FontFamily="Inter-Bold" FontSize="20" HorizontalOptions="Center"/>
+                            <Label Text="By Sally Rooney" FontFamily="Inter-Regular" FontSize="14" TextColor="#8F8F8F" HorizontalOptions="Center"/>
+                            <!--<Label Text="Rating: 4.5 Stars" FontFamily="Inter-Regular" FontSize="14" TextColor="#8F8F8F" HorizontalOptions="Center"/>-->
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+                
+                <!--Book desc, price-->
+                <Grid Grid.Row="1" RowDefinitions="auto, auto">
+                    <Grid Grid.Row="0" ColumnDefinitions="*,*">
+                        <Label Grid.Column="0" Text="Description" FontFamily="Inter-Bold" FontSize="20"/>
+                        <Label Grid.Column="1" Text="$18.00" TextColor="#168A7C" FontFamily="Inter-Bold" FontSize="20" HorizontalOptions="End"/>
+                    </Grid>
+                    <Label Grid.Row="1" Margin="0,5,0,0" Text="Normal People by Sally Rooney is about Marianne and Connell, their secret friendship, and their on and off again relationship. They are two young people drawn to each other who drift apart at times." TextColor="#8F8F8F" FontFamily="Inter-Regular" FontSize="12"/>
+                </Grid>
+
+                <!--Related/Similar books-->
+                <Label Grid.Row="2" VerticalOptions="Start" Text="Similar Books" FontSize="20" FontFamily="Inter-Bold" />
+                <ScrollView Grid.Row="2" HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Margin="0,40,0,0">
+                    <HorizontalStackLayout>
+                        <!-- Book 1, klik na knjigu prebaci na BookDetailPage -->
+                        <Frame Margin="0,0,20,0" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <VerticalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#fdf8da" BorderColor="Transparent">
+                                    <ImageButton Source="the_great_gatsby.png" HeightRequest="150" WidthRequest="120" Clicked="BookImage_Clicked"/>
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark -->
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <VerticalStackLayout>
+                                        <Label x:Name="BKName" Text="The Great Gatsby" FontFamily="Inter-Regular" FontSize="14" />
+                                        <Label Text="By Colleen Hover" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                    </VerticalStackLayout>
+                                    <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <!-- Book 2 -->
+                        <Frame Margin="0,0,20,0" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <VerticalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#e9f2ff" BorderColor="Transparent">
+                                    <Image HeightRequest="150" WidthRequest="120" VerticalOptions="Start" Source="normal_people.png" />
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark -->
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <VerticalStackLayout>
+                                        <Label Text="Normal People" FontFamily="Inter-Regular" FontSize="14" />
+                                        <Label Text="By Sally Rooney" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                    </VerticalStackLayout>
+                                    <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <!-- Book 3 -->
+                        <Frame Margin="0,0,20,0" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <VerticalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#fdf8da" BorderColor="Transparent">
+                                    <Image HeightRequest="150" WidthRequest="120" VerticalOptions="Start" Source="the_great_gatsby.png" />
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark -->
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <VerticalStackLayout>
+                                        <Label Text="The Great Gatsby" FontFamily="Inter-Regular" FontSize="14" />
+                                        <Label Text="By Colleen Hover" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                    </VerticalStackLayout>
+                                    <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <!-- Book 4 -->
+                        <Frame Margin="0,0,20,0" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <VerticalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#fdf8da" BorderColor="Transparent">
+                                    <Image HeightRequest="150" WidthRequest="120" VerticalOptions="Start" Source="the_great_gatsby.png" />
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark -->
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <VerticalStackLayout>
+                                        <Label Text="The Great Gatsby" FontFamily="Inter-Regular" FontSize="14" />
+                                        <Label Text="By Colleen Hover" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                    </VerticalStackLayout>
+                                    <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </HorizontalStackLayout>
+                </ScrollView>
+            </Grid>
+        </ScrollView>
+
+        <!-- Fixed add to cart -->
+        <Grid Grid.Row="1" BackgroundColor="white" Padding="15">
+            <Border Stroke="White">
+                <Grid ColumnDefinitions="auto,*" ColumnSpacing="15">
+                    <local:MyStepper Grid.Column="0" HeightRequest="50"/>
+                    <Button Grid.Column="1" BackgroundColor="#168A7C" Text="Add to cart" FontFamily="Inter-Medium" TextColor="White" CornerRadius="10" HeightRequest="50" />
+                </Grid>
+            </Border>
+            <Grid.Shadow>
+                <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+            </Grid.Shadow>
+        </Grid>
+    </Grid>
+</ContentPage>

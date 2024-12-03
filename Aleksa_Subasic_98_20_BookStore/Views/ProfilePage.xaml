@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aleksa_Subasic_98_20_BookStore.Views.ProfilePage">
+    
+    <ScrollView Padding="10,0" Margin="0,40,0,0">
+        <Grid RowDefinitions="auto, auto, auto" RowSpacing="30" Padding="5,0">
+            <!-- Name and email with profile picture -->
+            <Grid Grid.Row="0" ColumnDefinitions="auto, *" >
+                <VerticalStackLayout Grid.Column="0" VerticalOptions="Center">
+                    <HorizontalStackLayout>
+                        <Label Text="Aleksa " FontFamily="Inter-Bold" FontSize="24"/>
+                        <Label Text="Subasic" FontFamily="Inter-Bold" FontSize="24" TextColor="#168A7C"/>
+                    </HorizontalStackLayout>
+                    <Label Text="aleksa.subasic@gmail.com" FontFamily="Inter-Regular" TextColor="#8F8F8F"/>
+                </VerticalStackLayout>
+                <Border Grid.Column="1" BackgroundColor="White" WidthRequest="80" HeightRequest="80" Padding="5" StrokeShape="RoundRectangle 100" Stroke="Transparent" HorizontalOptions="End">
+                    <Image Source="comedy_cat.svg" />
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+                    </Border.Shadow>
+                </Border>
+            </Grid>
+
+            <!-- General -->
+            <VerticalStackLayout Grid.Row="1" Spacing="20">
+                <Label Text="General" FontFamily="Inter-Bold" FontSize="20"/>
+                <Button BackgroundColor="White" CornerRadius="15" FontFamily="Inter-Medium" Text="Edit Profile" TextColor="#168A7C">
+                    <Button.Shadow>
+                        <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+                    </Button.Shadow>
+                </Button>
+                <Button BackgroundColor="White" CornerRadius="15" FontFamily="Inter-Medium" Text="Orders" TextColor="#168A7C">
+                    <Button.Shadow>
+                        <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+                    </Button.Shadow>
+                </Button>
+                <Button BackgroundColor="White" CornerRadius="15" FontFamily="Inter-Medium" Text="Payment Methods" TextColor="#168A7C">
+                    <Button.Shadow>
+                        <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+                    </Button.Shadow>
+                </Button>
+                <Button BackgroundColor="White" CornerRadius="15" FontFamily="Inter-Medium" Text="Change Password" TextColor="#168A7C">
+                    <Button.Shadow>
+                        <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+                    </Button.Shadow>
+                </Button>
+            </VerticalStackLayout>
+
+            <!-- Support -->
+            <VerticalStackLayout Grid.Row="2" Spacing="20">
+                <Label Text="Support" FontFamily="Inter-Bold" FontSize="20"/>
+                <Button BackgroundColor="White" CornerRadius="15" FontFamily="Inter-Medium" Text="Contact Support" TextColor="#168A7C">
+                    <Button.Shadow>
+                        <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+                    </Button.Shadow>
+                </Button>
+                <Button BackgroundColor="White" CornerRadius="15" FontFamily="Inter-Medium" Text="Privacy Policy" TextColor="#168A7C">
+                    <Button.Shadow>
+                        <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+                    </Button.Shadow>
+                </Button>
+                <Button BackgroundColor="White" CornerRadius="15" FontFamily="Inter-Medium" Text="Logout" TextColor="#E27171">
+                    <Button.Shadow>
+                        <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+                    </Button.Shadow>
+                </Button>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

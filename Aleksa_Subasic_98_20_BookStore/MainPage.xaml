@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Aleksa_Subasic_98_20_BookStore"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
+             xmlns:books="clr-namespace:Aleksa_Subasic_98_20_BookStore.ViewModels"
+             x:Class="Aleksa_Subasic_98_20_BookStore.MainPage"
+             droid:NavigationBar.Color="White">
+
+    <!-- Change Status Bar Color -->
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent"/>
+    </Page.Behaviors>
+
+    <ContentPage.BindingContext>
+        <books:BooksViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="Auto,*" Padding="15,0">
+        <!-- Fixed Search Bar -->
+        <Border Grid.Row="0" Margin="0,20,0,0" Stroke="white" BackgroundColor="White" StrokeShape="RoundRectangle 15">
+            <Border.Shadow>
+                <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+            </Border.Shadow>
+            <Grid>
+                <Image Source="search_svg.svg" 
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Margin="10,0"
+                       WidthRequest="24" 
+                       HeightRequest="24"/>
+                <local:BorderlessEntry x:Name="searchEntry" Margin="45,0" Placeholder="Search books" PlaceholderColor="#8F8F8F" TextColor="#8F8F8F" />
+            </Grid>
+        </Border>
+
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout>
+                <!-- Popular This Month -->
+                <Grid ColumnDefinitions="200, *" Margin="0,40,0,0">
+                    <Label
+                Grid.Column="0"
+                Text="Popular This Month"
+                FontSize="20"
+                FontFamily="Inter-Bold"
+                VerticalOptions="Center" />
+                    <Label
+                Grid.Column="1"
+                HorizontalOptions="End"
+                Text="See more"
+                FontSize="14"
+                FontFamily="Inter-Regular"
+                TextColor="#168A7C"
+                VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoTo_ProductsPage_TapGestureRecognizer_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+
+                <!-- Books -->
+                <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Margin="0,20,0,0">
+                    <HorizontalStackLayout>
+                        <!-- Book 1, klik na knjigu prebaci na BookDetailPage -->
+                        <Frame Margin="0,0,20,0" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <VerticalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#fdf8da" BorderColor="Transparent">
+                                    <ImageButton Source="the_great_gatsby.png" HeightRequest="150" WidthRequest="120" Clicked="BookImage_Clicked"/>
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark -->
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <VerticalStackLayout>
+                                        <Label x:Name="BKName" Text="The Great Gatsby" FontFamily="Inter-Regular" FontSize="14" />
+                                        <Label Text="By Colleen Hover" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                    </VerticalStackLayout>
+                                    <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <!-- Book 2 -->
+                        <Frame Margin="0,0,20,0" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <VerticalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#e9f2ff" BorderColor="Transparent">
+                                    <Image HeightRequest="150" WidthRequest="120" VerticalOptions="Start" Source="normal_people.png" />
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark -->
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <VerticalStackLayout>
+                                        <Label Text="Normal People" FontFamily="Inter-Regular" FontSize="14" />
+                                        <Label Text="By Sally Rooney" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                    </VerticalStackLayout>
+                                    <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <!-- Book 3 -->
+                        <Frame Margin="0,0,20,0" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <VerticalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#fdf8da" BorderColor="Transparent">
+                                    <Image HeightRequest="150" WidthRequest="120" VerticalOptions="Start" Source="the_great_gatsby.png" />
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark -->
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <VerticalStackLayout>
+                                        <Label Text="The Great Gatsby" FontFamily="Inter-Regular" FontSize="14" />
+                                        <Label Text="By Colleen Hover" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                    </VerticalStackLayout>
+                                    <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <!-- Book 4 -->
+                        <Frame Margin="0,0,20,0" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <VerticalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#fdf8da" BorderColor="Transparent">
+                                    <Image HeightRequest="150" WidthRequest="120" VerticalOptions="Start" Source="the_great_gatsby.png" />
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark -->
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <VerticalStackLayout>
+                                        <Label Text="The Great Gatsby" FontFamily="Inter-Regular" FontSize="14" />
+                                        <Label Text="By Colleen Hover" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                    </VerticalStackLayout>
+                                    <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+                <!-- Trending This Week -->
+                <HorizontalStackLayout Margin="0,40,0,0">
+                    <Label
+                Text="Trending This Week"
+                FontSize="20"
+                FontFamily="Inter-Bold"
+                VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <!-- Books -->
+                <ScrollView Orientation="Vertical" Margin="0,20,0,0">
+                    <VerticalStackLayout>
+                        <!-- Book 1 -->
+                        <Frame Margin="0,0,0,20" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <HorizontalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#fdf8da" BorderColor="Transparent">
+                                    <Image HeightRequest="130" VerticalOptions="Start" Source="the_great_gatsby.png" />
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark, Rating, Price -->
+                                <VerticalStackLayout VerticalOptions="Center" Margin="20,0,0,0">
+                                    <HorizontalStackLayout>
+                                        <VerticalStackLayout>
+                                            <Label Text="The Great Gatsby" FontFamily="Inter-Regular" FontSize="14" />
+                                            <Label Text="By Colleen Hover" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                        </VerticalStackLayout>
+                                        <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                    </HorizontalStackLayout>
+                                    <Label Text="Rating: 4.5" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" Margin="0,0,0,10"/>
+                                    <Label Text="Price: $14.99" FontFamily="Inter-Medium" TextColor="#8F8F8F"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Frame>
+                        <!-- Book 2 -->
+                        <Frame Margin="0,0,0,20" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <HorizontalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#fdf8da" BorderColor="Transparent">
+                                    <Image HeightRequest="130" VerticalOptions="Start" Source="normal_people.png" />
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark, Rating, Price -->
+                                <VerticalStackLayout VerticalOptions="Center" Margin="20,0,0,0">
+                                    <HorizontalStackLayout>
+                                        <VerticalStackLayout>
+                                            <Label Text="Normal People" FontFamily="Inter-Regular" FontSize="14" />
+                                            <Label Text="By Sally Rooney" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                        </VerticalStackLayout>
+                                        <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                    </HorizontalStackLayout>
+                                    <Label Text="Rating: 4.5" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" Margin="0,0,0,10"/>
+                                    <Label Text="Price: $12.99" FontFamily="Inter-Medium" TextColor="#8F8F8F"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Frame>
+                        <!-- Book 3 -->
+                        <Frame Margin="0,0,0,20" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <HorizontalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#fdf8da" BorderColor="Transparent">
+                                    <Image HeightRequest="130" VerticalOptions="Start" Source="normal_people.png" />
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark, Rating, Price -->
+                                <VerticalStackLayout VerticalOptions="Center" Margin="20,0,0,0">
+                                    <HorizontalStackLayout>
+                                        <VerticalStackLayout>
+                                            <Label Text="Normal People" FontFamily="Inter-Regular" FontSize="14" />
+                                            <Label Text="By Sally Rooney" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                        </VerticalStackLayout>
+                                        <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                    </HorizontalStackLayout>
+                                    <Label Text="Rating: 4.5" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" Margin="0,0,0,10"/>
+                                    <Label Text="Price: $12.99" FontFamily="Inter-Medium" TextColor="#8F8F8F"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Frame>
+                        <!-- Book 4 -->
+                        <Frame Margin="0,0,0,20" Padding="0" CornerRadius="0" BorderColor="Transparent" BackgroundColor="Transparent">
+                            <HorizontalStackLayout>
+                                <!-- Book Image -->
+                                <Frame Padding="20" BackgroundColor="#fdf8da" BorderColor="Transparent">
+                                    <Image HeightRequest="130" VerticalOptions="Start" Source="normal_people.png" />
+                                </Frame>
+                                <!-- Book Name, Author, Bookmark, Rating, Price -->
+                                <VerticalStackLayout VerticalOptions="Center" Margin="20,0,0,0">
+                                    <HorizontalStackLayout>
+                                        <VerticalStackLayout>
+                                            <Label Text="Normal People" FontFamily="Inter-Regular" FontSize="14" />
+                                            <Label Text="By Sally Rooney" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" />
+                                        </VerticalStackLayout>
+                                        <ImageButton Source="fav.svg" WidthRequest="17" HeightRequest="22" Clicked="AddToFavorites_Clicked" Margin="15,-10,0,0"/>
+                                    </HorizontalStackLayout>
+                                    <Label Text="Rating: 4.5" FontFamily="Inter-Regular" FontSize="12" TextColor="#8F8F8F" Margin="0,0,0,10"/>
+                                    <Label Text="Price: $12.99" FontFamily="Inter-Medium" TextColor="#8F8F8F"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

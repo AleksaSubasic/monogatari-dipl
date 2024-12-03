@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aleksa_Subasic_98_20_BookStore.Views.RegisterPage_3"
+             xmlns:local="clr-namespace:Aleksa_Subasic_98_20_BookStore"
+             Shell.TabBarIsVisible="False">
+
+    <VerticalStackLayout Padding="15,0" Margin="0,50,0,0">
+        <!-- Headline -->
+        <Label Text="This one" FontSize="48" TextColor="#168A7C" FontFamily="Inter-Bold" />
+        <Label Text="is the last one." FontSize="48" Margin="0, -20, 0, 0" FontFamily="Inter-Bold" />
+        <Label Text="Crucial information for your login." FontSize="14" TextColor="#168A7C" FontFamily="Inter-Regular" Margin="0, 0, 0, 35"/>
+
+        <!-- Email -->
+        <Label Text="Email address" FontFamily="Inter-Medium" Margin="0,0,0,10" />
+        <Border Margin="0,0,0,20" Padding="15,0,0,0" Stroke="white" BackgroundColor="White" StrokeShape="RoundRectangle 15">
+            <Border.Shadow>
+                <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+            </Border.Shadow>
+            <local:BorderlessEntry Placeholder="your.email@gmail.com" PlaceholderColor="#8F8F8F"/>
+        </Border>
+
+        <!-- Pass -->
+        <Label Text="Password" FontFamily="Inter-Medium" Margin="0,0,0,10" />
+        <Border Margin="0,0,0,20" Padding="15,0,0,0" Stroke="white" BackgroundColor="White" StrokeShape="RoundRectangle 15">
+            <Border.Shadow>
+                <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+            </Border.Shadow>
+            <local:BorderlessEntry Placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" 
+                                   PlaceholderColor="#8F8F8F"/>
+        </Border>
+
+        <!-- Re Pass -->
+        <Label Text="Re-type password" FontFamily="Inter-Medium" Margin="0,0,0,10" />
+        <Border Margin="0,0,0,20" Padding="15,0,0,0" Stroke="white" BackgroundColor="White" StrokeShape="RoundRectangle 15">
+            <Border.Shadow>
+                <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+            </Border.Shadow>
+            <local:BorderlessEntry Placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" 
+                                   PlaceholderColor="#8F8F8F"/>
+        </Border>
+
+        <!-- Finish Btn -->
+        <Button x:Name="FinishBtn" Text="Finish" FontFamily="Inter-Medium" BackgroundColor="#168A7C" CornerRadius="15" Margin="0,0,0,10" Clicked="FinishBtn_Clicked">
+            <Button.Shadow>
+                <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+            </Button.Shadow>
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>

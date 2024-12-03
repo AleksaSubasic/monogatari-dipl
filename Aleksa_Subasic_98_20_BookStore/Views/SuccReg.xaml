@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aleksa_Subasic_98_20_BookStore.Views.SuccReg"
+             Shell.TabBarIsVisible="False">
+
+    <VerticalStackLayout Padding="15,0" VerticalOptions="Center">
+        <!-- Headline -->
+        <Label Text="Successful" FontSize="48" TextColor="#168A7C" FontFamily="Inter-Bold" HorizontalTextAlignment="Center"/>
+        <Label Text="registration!" FontSize="48" Margin="0, -20, 0, 0" FontFamily="Inter-Bold" HorizontalTextAlignment="Center"/>
+
+        <!-- Back to Login Page Btn -->
+        <Button x:Name="BackToLoginBtn" Text="Back to login" FontFamily="Inter-Medium" BackgroundColor="#168A7C" CornerRadius="15" Margin="0,35,0,0" Clicked="BackToLoginBtn_Clicked">
+            <Button.Shadow>
+                <Shadow Brush="Black" Offset="0,2" Radius="10" Opacity="0.07" />
+            </Button.Shadow>
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>
